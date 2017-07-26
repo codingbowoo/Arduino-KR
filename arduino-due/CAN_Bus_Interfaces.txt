@@ -1,0 +1,62 @@
+original link: http://copperhilltech.com/blog/arduino-due-can-bus-controller-area-network-interfaces/
+
+
+Arduino Due CAN Bus (Controller Area Network) Interfaces
+Posted by Wilfried Voss on April 05, 2016
+
+아두이노 듀(듀에) CAN 버스 인터페이스
+글쓴이: Wilfried Voss, 작성일자: 2016년 4월 5일
+옮긴이: Bowoo Jang(장보우), 작성일자 2017년 7월 26일
+
+This post is part of a series on CAN Bus and SAE J1939 Prototyping with the ARM Cortex M3 processor.
+
+이글은 ARM Cortex M3 프로세서로 프로토타입 된 CAN Bus와 SAE J1939에 대한연재물의 일부이다. 
+
+Arduino Due
+[아두이노 듀 이미지]
+
+As it turns out, the Arduino Due, just like a myriad of other embedded systems with CAN interfaces, was developed under the best intentions, but these intentions were focussed on providing a low-price ARM processor solution for the Arduino programming environment.
+알려진 바와 같이 아두이노 듀는 CAN 인터페이스를 제공하는 수없이 많은 임베디드 시스템들과 꼭 같게도 best intentions 하에 개발되었으나, 이 intention들은 아두이노 개발환경에저가의 ARM 프로세서 솔루션을 제공하는 데에  집중되어 있었다.
+This was accomplished, however, not without sacrifices (Think Ethernet port that is supported by the processor but left empty) and shortage of software support and documentation.
+이것(저가의 ARM프로세서를 제공하는 것)은 충족되었지만, 어느정도의 희생을 감내해야 했고 (프로세서가 지원을 중단해버린 이더넷 포트를 생각해 보라. ) 소프트웨어 지원이나 문서화가 모자란 실정이다.
+
+
+I hate to appear as negative, but I am sick and tired of endless reading of data sheets and schematics to obtain information that should be part of the standard documentation. 
+부정적 의견을 드러내는 것에 조심스럽지만, 사실 나는공식문서에는 있어야 하는(그러나 없는) 정보들을 얻기 위해 끝도 없이 데이터시트와 schematics를 읽는 것에 질렸다. 
+Any new product should not be released without a "farm system" that provides experience and exposure not just for beginners but also those engineers who'd like to focus on programming, not on hardware research.
+그 어떤 새로운 제품도 초보자 뿐만 아니라 하드웨어 리서치보다는 프로그래밍에 집중하고 싶은 엔지니어들에게 간접 경험(경험과 노출)을 제공하는 "farm system" 없이는 릴리즈되어서는 안된다. 
+
+
+This is especially true for the two CAN ports as supported by the Arduino Due. 
+이것은 특히 아두이노 듀에서 지원하는 두개의 CAN 포트들에 적용할 수 있다.
+The official Arduino website states: "CAN: CANRX and CANTX - These pins support the CAN communication protocol but are not yet supported by the Arduino APIs." 
+아두이노 공식 웹사이트에는 다음과 같이 명시되어 있다. "CAN : CANRX와 CANTX - 이 두개의 핀들은 CAN 통신 프로토콜을 제공하지만 아직 아두이노 API가 지원되지는 않는다."
+See: https://www.arduino.cc/en/Main/ArduinoBoardDue
+참고: https://www.arduino.cc/en/Main/ArduinoBoardDue
+
+
+Well, the "documentation" on that page ignores the fact that there is a second CAN port. 
+해당 페이지의 "문서"는 아두이노 듀에 두번째 CAN 포트가 있다는 사실은 언급하지 않는다.
+And not to worry, there is software available due to the help of some brave and enthusiastic Arduino followers (just follow my series CAN Bus and SAE J1939 Prototyping with the ARM Cortex M3 processor).
+
+그러나 걱정하지 않아도 된다. 몇몇 용감하고 정열적인 아두이노 사용자들을 위한 소프트웨어가 있으니까! (그냥 이 글타래를 잘 따라오면 된다)
+The following image shows the available CAN port connections:
+다음 그림은 가능한 CAN 포트 연결을 보여준다:
+
+
+[아두이노 듀의 CANRX, CANTX 핀이 보이는 사진]
+
+
+
+The first CAN port, represented by CANRX0 and CANTX0 is easy to find due to its visible print on the Arduino Due board. The second CAN Bus port reveals itself only through digging through the Arduino Due schematics.
+
+
+The availability of two CAN bus ports provides a great advantage in regards to testing your CAN connection, because you can create a loopback between the two CAN channels, meaning whatever you send out through one port will be received on the other. This method will save you time during the initial development.
+
+
+However, be aware that the CAN ports in their current form are useless when you intend to connect them to a real CAN bus network, may it be a vehicle or an industrial control system.
+
+
+While many popular embedded systems (e.g. mbed LPC1768, Arduino Due, Teensy 3.x, etc.) provide their respective CAN interfaces, these CAN capabilities are per default useless without their respective CAN transceivers. A CAN transceiver is a line driver that converts the controller’s TTL signal to the actual CAN level, which is a differential voltage. The use of differential voltage contributes to the vast reliability of CAN. Out of cost constraints, boards like the Arduino Due and the mbed LPC1768 have no onboard CAN transceivers. Basically, CAN transceivers would add more costs to the board and why pay for it when you don't need it? CAN transceivers, due to power management requirements, come always as a separate chip.
+
+In order to add CAN bus transceivers to your Arduino Due, you will need either a CAN transceiver breakout board or the CAN Shield for Arduino Due:
