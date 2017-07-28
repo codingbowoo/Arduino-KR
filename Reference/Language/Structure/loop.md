@@ -16,6 +16,7 @@ Example
 	const int buttonPin = 3;
 
  	// setup initializes serial and the button pin
+	// setup 함수에서 시리얼포트와 핀모드를 초기화해줍니다
  	void setup()
  	{
 		Serial.begin(9600);
@@ -24,13 +25,14 @@ Example
 
 	// loop checks the button pin each time,
 	// and will send serial if it is pressed
-     	void loop()
-    	{
-       		if (digitalRead(buttonPin) == HIGH)
-           		Serial.write('H');
-	     	else
-	         	Serial.write('L');
-
+	// loop 함수가 매번 버튼핀의 상태를 체크하고,
+	// 버튼의 상태(눌렸는지 아닌지)를 시리얼 모니터에 보내줄거에요.
+	void loop()
+	{
+		if (digitalRead(buttonPin) == HIGH)
+			Serial.write('H');
+		else
+			Serial.write('L');
 		delay(1000);
 	}
 
