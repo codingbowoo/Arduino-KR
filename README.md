@@ -1,5 +1,6 @@
 # arduino-bowoo
 
-arduino documents translated into Korean
+Any related arduino documents translated into Korean
 
-created on July 26th, at MagicEco co.
+created on July 26th, 2017 by codingbowoo
+last modified July 28th, 2017
