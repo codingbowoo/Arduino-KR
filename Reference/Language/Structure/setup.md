@@ -35,7 +35,9 @@ Example
 
 
 Corrections, suggestions, and new documentation should be posted to the [Forum](https://forum.arduino.cc/index.php/board,23.0.html).
+
 수정, 제안 및 새 도큐멘테이션은 [포럼](https://forum.arduino.cc/index.php/board,23.0.html)에 올려 주세요.
 
 The text of the Arduino reference is licensed under a [Creative Commons Attribution-ShareAlike 3.0 License](https://creativecommons.org/licenses/by-sa/3.0/). Code samples in the reference are released into the public domain.
+
 아두이노 레퍼런스는 [크리에이티브 커먼즈3.0 (저작자 표시-동일조건 변경 허락)](https://creativecommons.org/licenses/by-sa/3.0/deed.ko) 라이센스를 준수합니다. 
