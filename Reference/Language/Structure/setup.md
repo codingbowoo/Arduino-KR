@@ -1,13 +1,15 @@
+원문은 [여기](https://www.arduino.cc/en/Reference/Setup)에서 확인할 수 있습니다.
+
+
 setup()
 ========
-원문은 [여기](https://www.arduino.cc/en/Reference/Setup)에서 확인할 수 있습니다.
 
 
 The setup() function is called when a sketch starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or reset of the Arduino board.
 
 setup() 함수는 sketch가 시작될때 호출되는 함수에요. 변수와 핀모드를 초기화하거나 라이브러리를 사용하고 싶을 때 사용합니다. 이 setup() 함수는 아두이노 보드를켤 때나 리셋한 다음에  딱 한번만 작동해요.
 
-
+ 
 
 
 Example
@@ -30,8 +32,8 @@ Example
 
 
 
-
-
+ 
+ 
 ***
 
 Corrections, suggestions, and new documentation should be posted to the [Forum](https://forum.arduino.cc/index.php/board,23.0.html).
