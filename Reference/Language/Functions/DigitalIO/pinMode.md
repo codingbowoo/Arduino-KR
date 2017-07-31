@@ -12,6 +12,7 @@ Configures the specified pin to behave either as an input or an output. See the 
 특정 핀을 입력 또는 출력으로 작용하도록 설정한다. 핀들과의 상관관계에  대한 자세한 정보는 디지털 핀의 설명을 참고하시라.
 
 As of Arduino 1.0.1, it is possible to enable the internal pullup resistors with the mode INPUT_PULLUP. Additionally, the INPUT mode explicitly disables the internal pullups.
+
 아두이노 1.0.1 부터는 INPUT_PULLUP 모드를 통해 내부 풀업 저항을 활성화 할 수 있다. 덧붙여 INPUT 모드는명시적으로 내부 풀업을 비활성화 한다. 
 
 
@@ -57,14 +58,18 @@ Note
 ----
 
 The analog input pins can be used as digital pins, referred to as A0, A1, etc.
+
 A0, A1과 같은 아날로그 입력 핀들도 디지털 핀으로 이용할 수 있다.
 
 
 See also
 ---------
 constants
+
 digitalWrite()
+
 digitalRead()
+
 Tutorial: Description of the pins on an Arduino board
 
  
